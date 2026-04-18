@@ -1,8 +1,5 @@
 #include "questionpicker.h"
 
-
-string Folder = "Questions\\";
-
 //Sets up Question Picker object
 QuestionPicker::QuestionPicker(string fileName){
     //Number of question that you are on
@@ -32,7 +29,7 @@ QuestionPicker::QuestionPicker(string fileName){
 
     //Holds which questions have been used
     for(int i = 0; i < 2; i++){
-        for(int j = 0; j < 75; j++){
+        for(int j = 0; j < 85; j++){
             questionsUsed[i][j] = 0;
         }
     }
@@ -42,50 +39,50 @@ QuestionPicker::QuestionPicker(string fileName){
 
     //holds the number of each type of question is available
     questionAmount = new int*[7];
-    questionAmount[0] = new int[fileLines("F Rapid Fire.txt")/3];
-    questionAmount[1] = new int[fileLines("G General.txt")/6];
-    questionAmount[2] = new int[fileLines("A According To.txt")/6];
-    questionAmount[3] = new int[fileLines("QVR Memory.txt")/4];
-    questionAmount[4] = new int[fileLines("X Context.txt")/6];
-    questionAmount[5] = new int[fileLines("S Situation.txt")/6];
-    questionAmount[6] = new int[fileLines("I Book and Chapter.txt")/6];
+    //questionAmount[0] = new int[fileLines(filePath + "F Rapid Fire.txt")/3];
+    questionAmount[1] = new int[fileLines(filePath + "G General.txt")/3];
+    questionAmount[2] = new int[fileLines(filePath + "A According To.txt")/3];
+    questionAmount[3] = new int[fileLines(filePath + "QVR Memory.txt")/4];
+    //questionAmount[4] = new int[fileLines(filePath + "X Context.txt")/3];
+    //questionAmount[5] = new int[fileLines("S Situation.txt")/3];
+    //questionAmount[6] = new int[fileLines("I Book and Chapter.txt")/3];
 
     //Fills array with zeros and prints out the number of each type
-    for(int i = 0; i < fileLines("F Rapid Fire.txt")/3; i++){
-        questionAmount[0][i] = 0;
-    }
+    //for(int i = 0; i < fileLines(filePath + "F Rapid Fire.txt")/3; i++){
+        //questionAmount[0][i] = 0;
+    //}
 
-    cout << "Rapid Fire Length: " << fileLines("F Rapid Fire.txt")/3 << endl;
+    //cout << "Rapid Fire Length: " << fileLines(filePath + "F Rapid Fire.txt")/3 << endl;
 
-    for(int i = 0; i < fileLines("G General.txt")/6; i++){
+    for(int i = 0; i < fileLines(filePath + "G General.txt")/3; i++){
         questionAmount[1][i] = 0;
     }
 
-    cout << "General Length: " << fileLines("G General.txt")/6 << endl;
+    cout << "General Length: " << fileLines(filePath + "G General.txt")/3 << endl;
 
-    for(int i = 0; i < fileLines("A According To.txt")/6; i++){
+    for(int i = 0; i < fileLines(filePath + "A According To.txt")/3; i++){
         questionAmount[2][i] = 0;
     }
 
-    cout << "According To Length: " << fileLines("A According To.txt")/6 << endl;
+    cout << "According To Length: " << fileLines(filePath + "A According To.txt")/3 << endl;
 
-    for(int i = 0; i < fileLines("QVR Memory.txt")/4; i++){
+    for(int i = 0; i < fileLines(filePath + "QVR Memory.txt")/4; i++){
         questionAmount[3][i] = 0;
     }
 
-    cout << "Memory Length: " << fileLines("QVR Memory.txt")/4 << endl;
+    cout << "Memory Length: " << fileLines(filePath + "QVR Memory.txt")/4 << endl;
 
-    for(int i = 0; i < fileLines("X Context.txt")/6; i++){
+    /*for(int i = 0; i < fileLines(filePath + "X Context.txt")/3; i++){
         questionAmount[4][i] = 0;
-    }
+    }*/
 
-    cout << "Context Length: " << fileLines("X Context.txt")/6 << endl;
+    //cout << "Context Length: " << fileLines(filePath + "X Context.txt")/3 << endl;
 
-    for(int i = 0; i < fileLines("S Situation.txt")/6; i++){
+   /* for(int i = 0; i < fileLines("S Situation.txt")/3; i++){
         questionAmount[5][i] = 0;
-    }
+    }*/
 
-    cout << "Situation Length: " << fileLines("S Situation.txt")/6 << endl;
+    //cout << "Situation Length: " << fileLines("S Situation.txt")/3 << endl;
 
     /*for(int i = 0; i < fileLines("I Book and Chapter.txt")/6; i++){
         questionAmount[6][i] = 0;
@@ -96,41 +93,45 @@ QuestionPicker::QuestionPicker(string fileName){
 }
 
 void QuestionPicker::OutputUsed(){
+    /*
     cout << endl << endl;
-    for(int i = 0; i < fileLines("F Rapid Fire.txt")/3; i++){
+    for(int i = 0; i < fileLines(filePath + "F Rapid Fire.txt")/3; i++){
         cout << questionAmount[0][i] << " ";
-    }
+    }*/
     cout << endl << endl;
 
-    for(int i = 0; i < fileLines("G General.txt")/6; i++){
+
+    for(int i = 0; i < fileLines(filePath + "G General.txt")/3; i++){
         cout << questionAmount[1][i] << " ";
     }
     cout << endl << endl;
 
-    for(int i = 0; i < fileLines("A According To.txt")/6; i++){
+    for(int i = 0; i < fileLines(filePath + "A According To.txt")/3; i++){
         cout << questionAmount[2][i] << " ";
     }
     cout << endl << endl;
 
-    for(int i = 0; i < fileLines("QVR Memory.txt")/4; i++){
+    for(int i = 0; i < fileLines(filePath + "QVR Memory.txt")/4; i++){
         cout << questionAmount[3][i] << " ";
     }
     cout << endl << endl;
 
-    for(int i = 0; i < fileLines("X Context.txt")/6; i++){
+    /*
+    for(int i = 0; i < fileLines(filePath + "X Context.txt")/3; i++){
         cout << questionAmount[4][i] << " ";
     }
     cout << endl << endl;
+    */
 
-    for(int i = 0; i < fileLines("S Situation.txt")/6; i++){
+    /*for(int i = 0; i < fileLines("S Situation.txt")/3; i++){
         cout << questionAmount[5][i] << " ";
     }
     cout << endl << endl;
 
-    for(int i = 0; i < fileLines("I Book and Chapter.txt")/6; i++){
+    for(int i = 0; i < fileLines("I Book and Chapter.txt")/3; i++){
         cout << questionAmount[6][i] << " ";
     }
-    cout << endl;
+    cout << endl;*/
 }
 
 //Removes all the things that need it for the Question Picker object
@@ -154,22 +155,23 @@ void QuestionPicker::Activate(){
         }else{
             //Picks a random number to determine question type until it fits all criteria
             do{
-                questionType = rand() %  21;
-            }while( (questionType < 11 && questionCondition[0] > 9) || (questionType < 15 && questionType >= 11 && questionCondition[1] > 3) ||
-                    (questionCondition[2] > 2 && questionType < 18 && questionType >= 15) || (questionType == 18 && questionCondition[3] == 1) ||
-                    (questionCondition[4] == 1 && (questionType == 19 || questionType == 20) ) );
+                questionType = rand() %  20;
+            }while( (questionType < endQuestionType[0] && questionCondition[0] > endQuestionType[0]-2) ||
+                   (questionType < endQuestionType[1] && questionType >= endQuestionType[0] && questionCondition[1] > endQuestionType[1]-endQuestionType[0]-1) ||
+                    (questionCondition[2] > endQuestionType[2]-endQuestionType[1]-1 && questionType < endQuestionType[2] && questionType >= endQuestionType[1]) ||
+                   (questionType == endQuestionType[3] && questionCondition[3] == 1) ||
+                    (questionCondition[4] == 1 && (questionType == endQuestionType[4] || questionType == endQuestionType[4]) ) );
                     //No more then 10 general questions, 4 according to, 3 verse questions, 1 context and 1 situation or book and chapter
         }
-
         PickQuestion(questionType, x);
     }
 
-    //cout << "You made it to the rapid round.\n";
+    /*//cout << "You made it to the rapid round.\n";
     outputFile << "\n\n\t\t\tRapid Fire\n";
     questionType = -1;
     for(int x = 1; x <= 10; x++){
         PickQuestion(questionType, x);
-    }
+    }*/
 
     //cout << "You made it to the second round.\n";
     questionCondition[0] = 0;
@@ -195,10 +197,40 @@ void QuestionPicker::Activate(){
             questionType = 1;
         }else{
             do{
-                questionType = rand() %  21;
-            }while( (questionType < 11 && questionCondition[0] > 9) || (questionType < 15 && questionType >= 11 && questionCondition[1] > 3) ||
-                    (questionCondition[2] > 2 && questionType < 18 && questionType >= 15) || (questionType == 18 && questionCondition[3] == 1) ||
-                    (questionCondition[4] == 1 && (questionType == 19 || questionType == 20) ) );
+                questionType = rand() %  20;
+            }while( (questionType < endQuestionType[0] && questionCondition[0] > endQuestionType[0]-2) || (questionType < endQuestionType[1] &&
+                     questionType >= endQuestionType[0] && questionCondition[1] > endQuestionType[1]-endQuestionType[0]-1) ||
+                    (questionCondition[2] > endQuestionType[2]-endQuestionType[1]-1 && questionType < endQuestionType[2] && questionType >= endQuestionType[1]) ||
+                    (questionType == endQuestionType[3] && questionCondition[3] == 1) || (questionCondition[4] == 1 &&
+                    (questionType == endQuestionType[4] || questionType == endQuestionType[4]) ) );
+        }
+
+        PickQuestion(questionType, x);
+    }
+
+    questionCondition[0] = 0;
+    questionCondition[1] = 0;
+    questionCondition[2] = 0;
+    questionCondition[3] = 0;
+    questionCondition[4] = 0;
+
+    verseType[0] = 0;
+    verseType[1] = 0;
+    verseType[2] = 0;
+
+    //Third Round
+    outputFile << "\n\n\t\t\tRound 3\n";
+    for(int x = 1; x <= 20; x++){
+        if(x == 1 || x == 20){
+            questionType = 1;
+        }else{
+            do{
+                questionType = rand() %  20;
+            }while( (questionType < endQuestionType[0] && questionCondition[0] > endQuestionType[0]-2) || (questionType < endQuestionType[1] &&
+                     questionType >= endQuestionType[0] && questionCondition[1] > endQuestionType[1]-endQuestionType[0]-1) ||
+                    (questionCondition[2] > endQuestionType[2]-endQuestionType[1]-1 && questionType < endQuestionType[2] && questionType >= endQuestionType[1]) ||
+                    (questionType == endQuestionType[3] && questionCondition[3] == 1) || (questionCondition[4] == 1 &&
+                    (questionType == endQuestionType[4] || questionType == endQuestionType[4]) ) );
         }
 
         PickQuestion(questionType, x);
@@ -215,16 +247,21 @@ void QuestionPicker::Activate(){
     verseType[1] = 0;
     verseType[2] = 0;
 
+    numVersesUsed = 0;
+    for(int i = 0; i < 9; i++){
+        verseNum[i] = 0;
+    }
+
     //Replacement Round
     outputFile << "\n\n\t\t\tReplacement Round\n";
     for(int x = 1; x <= 20; x++){
         PickQuestion(x, x);
     }
 
-    questionType = -1;
+    /*questionType = -1;
     for(int x = 1; x <= 5; x++){
         PickQuestion(questionType, x + 20);
-    }
+    }*/
 
     outputFile.close();
     /*
@@ -265,50 +302,50 @@ void QuestionPicker::PickQuestion(const int questionType, const int x){\
     //Calculate which round this is
     if(questionCount < 20){
         roundNumber = 0;
-    }else if(questionCount < 30){
+    }else if(questionCount < 40){
         roundNumber = 1;
-    }else if(questionCount < 50){
+    }else if(questionCount < 60){
         roundNumber = 2;
-    }else if(questionCount < 70){
+    }else{
         roundNumber = 3;
     }
 
     //Find the question type and output the number and type at beginning of the question
-    if(questionType == -1){
+    /*if(questionType == -1){
         outputFile << x << ". ";
-        iFileName = "F Rapid Fire.txt";
+        iFileName = filePath + "F Rapid Fire.txt";
         questionsUsed[0][questionCount] = 0;
         questionCatagory = 0;
-    }else if(questionType < 11){
+    }*/if(questionType < endQuestionType[0] || questionType == 20){
         outputFile << x << ". " << "G. ";
-        iFileName = "G General.txt";
+        iFileName = filePath + "G General.txt";
         questionCondition[0]++;
         questionsUsed[0][questionCount] = 1;
         questionCatagory = 1;
-    }else if(questionType < 15){
+    }else if(questionType < endQuestionType[1]){
         outputFile << x << ". " << "A. ";
-        iFileName = "A According To.txt";
+        iFileName = filePath + "A According To.txt";
         questionCondition[1]++;
         questionsUsed[0][questionCount] = 2;
         questionCatagory = 2;
-    }else if(questionType < 18){
-        iFileName = "QVR Memory.txt";
+    }else if(questionType < endQuestionType[2]){
+        iFileName = filePath + "QVR Memory.txt";
         questionCondition[2]++;
         questionsUsed[0][questionCount] = 3;
         questionCatagory = 3;
-    }else if(questionType == 18){
+    }/*else if(questionType == endQuestionType[3]){
         outputFile << x << ". " << "X. ";
-        iFileName = "X Context.txt";
+        iFileName = filePath + "X Context.txt";
         questionCondition[3]++;
         questionsUsed[0][questionCount] = 4;
         questionCatagory = 4;
-    }else if(questionType == 19 || questionType == 20){ //Means that neither has been used
+    }*//*else if(questionType == endQuestionType[4] || questionType == endQuestionType[5]){ //Means that neither has been used
             outputFile << x << ". " << "S. ";
             iFileName = "S Situation.txt";
             questionCondition[4]++;
             questionsUsed[0][questionCount] = 5;
             questionCatagory = 5;
-    }
+    }*/
         /*else if(questionType == 20){
             outputFile << x << ". " << "I. ";
             iFileName = "I Book and Chapter.txt";
@@ -316,14 +353,14 @@ void QuestionPicker::PickQuestion(const int questionType, const int x){\
             questionsUsed[0][questionCount] = 6;
             questionCatagory = 6;
         }*/
-        
-    inputFile.open((Folder + iFileName).c_str());
+
+    inputFile.open(iFileName.c_str());
 
     numLines = fileLines(iFileName);
     bool bad = false;
     bool tryOnce = false;
     do{ //Go until find one that are good and do not match
-        if(questionType >= 15 && questionType < 18){ //Memory type
+        if(questionType >= endQuestionType[1] && questionType < endQuestionType[2]){ //Memory type
             bool check = false;
             do{
                 //Pick random number for question
@@ -358,42 +395,43 @@ void QuestionPicker::PickQuestion(const int questionType, const int x){\
                     check = true;
                 }
             }while(check);
-        }else if(questionType == -1){ //Rapid fire question picker
+        }else{ //Rapid fire question picker
             questionNum[0] = rand() % int(numLines/3.0) + 1;
             questionNum[1] = rand() % int(numLines/3.0) + 1;
-        }else{ //All other type of question picker
-            questionNum[0] = rand() % int(numLines/6.0) + 1;
-            questionNum[1] = rand() % int(numLines/6.0) + 1;
-        }
-        bad = false;
+            /*else{ //All other type of question picker
+                questionNum[0] = rand() % int(numLines/6.0) + 1;
+                questionNum[1] = rand() % int(numLines/6.0) + 1;
+            }*/
+            bad = false;
 
-        if(questionNum[0] == questionNum[1] && ( questionType < 15 || questionType >= 18)){
-            bad = true;
-        }else{
+            if(questionNum[0] == questionNum[1] && ( questionType < endQuestionType[1] || questionType >= endQuestionType[2])){
+                bad = true;
+            }else{
 
-            //Make sure the question has not been used before
-            for(int i = 0; i < 70; i++){
-                if(questionsUsed[0][i] == questionCatagory && (questionsUsed[1][i] == questionNum[0] || questionsUsed[1][i] == questionNum[1]) ){
-                    if(i < 20 && roundNumber == 0){ //If it was in this round pick a new number
-                        bad = true;
-                    }else if(i < 30 && i >= 20 && roundNumber == 1){
-                        bad = true;
-                    }else if(i < 50 && i >= 30 && roundNumber == 2){
-                        bad = true;
-                    }else if(i < 75 && i >= 50 && roundNumber == 3){
-                        bad = true;
-                    }else{ //if it was a different round try one more time to get a different result
-                        if(!tryOnce){
+                //Make sure the question has not been used before
+                for(int i = 0; i < 70; i++){
+                    if(questionsUsed[0][i] == questionCatagory && (questionsUsed[1][i] == questionNum[0] || questionsUsed[1][i] == questionNum[1]) ){
+                        if(i < 20 && roundNumber == 0){ //If it was in this round pick a new number
                             bad = true;
-                            tryOnce = true;
+                        }else if(i < 40 && i >= 20 && roundNumber == 1){
+                            bad = true;
+                        }else if(i < 65 && i >= 40 && roundNumber == 2){
+                            bad = true;
+                        }/*else if(i < 75 && i >= 50 && roundNumber == 3){
+                            bad = true;
+                        }*/else{ //if it was a different round try one more time to get a different result
+                            if(!tryOnce){
+                                bad = true;
+                                tryOnce = true;
+                            }
                         }
                     }
                 }
-            }
 
-            //Never use a question more then twice
-            if(questionAmount[questionCatagory][questionNum[0]-1] > 1 || questionAmount[questionCatagory][questionNum[1]-1] > 1){
-                bad = true;
+                //Never use a question more then twice
+                if(questionAmount[questionCatagory][questionNum[0]-1] > 1 || questionAmount[questionCatagory][questionNum[1]-1] > 1){
+                    bad = true;
+                }
             }
         }
     }while(bad);
@@ -413,39 +451,7 @@ void QuestionPicker::PickQuestion(const int questionType, const int x){\
 
     //Read through the file until you get both question and answers
     for(int y = 0; y < higher; y++){
-        if(questionType == -1){  //Rapid fire question only need three lines, dig site question and answer
-            if(y == questionNum[0]-1){ //If is smaller numbered question
-                inputFile >> digSite[0];
-                inputFile.ignore(500, '\n');
-                getline(inputFile, question[0]);
-                getline(inputFile, answer[0]);
-
-            }else if(y == questionNum[1]-1){ //Larger number question
-                inputFile >> digSite[1];
-                inputFile.ignore(500, '\n');
-                getline(inputFile, question[1]);
-                getline(inputFile, answer[1]);
-            }else{ //Neither of the question we are after and can thus be ignored
-                inputFile.ignore(500, '\n');
-                inputFile.ignore(500, '\n');
-                inputFile.ignore(500, '\n');
-            }
-
-            //At the very end output the properly formatted output and track which one was used
-            if(y ==  higher-1){
-                if(digSiteUse[digSite[0]-1] <= digSiteUse[digSite[1]-1]){
-                    outputFile << question[0] << endl << "\t" << "A. " <<answer[0] << endl << endl;
-                    digSiteUse[digSite[0]-1]++;
-                    questionsUsed[1][questionCount] = questionNum[0];
-                    questionAmount[questionCatagory][questionNum[0]-1]++;
-                }else{
-                    outputFile << question[1] << endl << "\t" << "A. " <<answer[1] << endl << endl;
-                    digSiteUse[digSite[1]-1]++;
-                    questionsUsed[1][questionCount] = questionNum[1];
-                    questionAmount[questionCatagory][questionNum[1]-1]++;
-                }
-            }
-        }else if(questionType >= 15 && questionType < 18){ //Memory verse type needs 4 lines dig site and three lines of text, held in answer for convinience
+        if(questionType >= endQuestionType[1] && questionType < endQuestionType[2]){ //Memory verse type needs 4 lines dig site and three lines of text, held in answer for convinience
             if(y == questionNum[0]-1 && questionNum[0] == questionNum[1] ){
                 inputFile >> digSite[0];
                 inputFile.ignore(500, '\n');
@@ -483,17 +489,17 @@ void QuestionPicker::PickQuestion(const int questionType, const int x){\
                     verseNum[found] = questionNum[0];
                     questionsUsed[1][questionCount] = questionNum[0];
                     //Complicated rotation to make sure all verse types are used
-                    if( (questionType == 15 && verseType[0] != 1) || (questionType == 17 && verseType[2] == 1 && verseType[0] != 1) ||
-                        (questionType == 16 && verseType[1] == 1 && verseType[2] == 1) ){
+                    if( (questionType == endQuestionType[1] && verseType[0] != 1) || (questionType == endQuestionType[1]+2 && verseType[2] == 1 && verseType[0] != 1) ||
+                        (questionType == endQuestionType[1]+1 && verseType[1] == 1 && verseType[2] == 1) ){
                         outputFile << x << ". Q. Quote " << answer[2] << "\n\t" << answer[0] << " " << answer[1] << endl << endl;
                         verseType[0]++;
 
-                    }else if( (questionType == 16 && verseType[1] != 1) || (questionType == 15 && verseType[0] == 1 && verseType[1] != 1) ||
-                             (questionType == 17 && verseType[0] == 1 && verseType[2] == 1) ){
+                    }else if( (questionType == endQuestionType[1]+1 && verseType[1] != 1) || (questionType == endQuestionType[1] && verseType[0] == 1 && verseType[1] != 1) ||
+                             (questionType == endQuestionType[1] && verseType[0] == 1 && verseType[2] == 1) ){
                         outputFile << x << ". V. Finish this verse: " << answer[0] << "\n\t" << answer[1] << " " << answer[2] << endl << endl;
                         verseType[1]++;
-                    }else if ( (questionType == 17 && verseType[2] != 1) || (questionType == 16 && verseType[1] == 1 && verseType[2] != 1) ||
-                              (questionType == 15 && verseType[0] == 1 && verseType[1] == 1)){
+                    }else if ( (questionType == endQuestionType[1]+2 && verseType[2] != 1) || (questionType == endQuestionType[1]+1 && verseType[1] == 1 && verseType[2] != 1) ||
+                              (questionType == endQuestionType[1] && verseType[0] == 1 && verseType[1] == 1)){
                         outputFile << x << ". R. Finish this verse and give the reference: " << answer[0] << "\n\t" << answer[1] << " ";
                         outputFile << answer[2] << endl << endl;
                         verseType[2]++;
@@ -512,16 +518,16 @@ void QuestionPicker::PickQuestion(const int questionType, const int x){\
                     }
                     verseNum[found] = questionNum[1];
                     questionsUsed[1][questionCount] = questionNum[1];
-                    if( (questionType == 15 && verseType[0] != 1) || (questionType == 17 && verseType[2] == 1 && verseType[0] != 1) ||
-                        (questionType == 16 && verseType[1] == 1 && verseType[2] == 1) ){
+                    if( (questionType == endQuestionType[1] && verseType[0] != 1) || (questionType == endQuestionType[1]+2 && verseType[2] == 1 && verseType[0] != 1) ||
+                        (questionType == endQuestionType[1]+1 && verseType[1] == 1 && verseType[2] == 1) ){
                         outputFile << x << ". Q. Quote " << answer[5] << "\n\t" << answer[3] << " " << answer[4] << endl << endl;
                         verseType[0]++;
-                    }else if( (questionType == 16 && verseType[1] != 1) || (questionType == 15 && verseType[0] == 1 && verseType[1] != 1) ||
-                             (questionType == 17 && verseType[0] == 1 && verseType[2] == 1) ){
+                    }else if( (questionType == endQuestionType[1]+1 && verseType[1] != 1) || (questionType == endQuestionType[1] && verseType[0] == 1 && verseType[1] != 1) ||
+                             (questionType == endQuestionType[1]+2 && verseType[0] == 1 && verseType[2] == 1) ){
                         outputFile << x << ". V. Finish this verse: " << answer[3] << "\n\t" << answer[4] << " " << answer[5] << endl << endl;
                         verseType[1]++;
-                    }else if ( (questionType == 17 && verseType[2] != 1) || (questionType == 16 && verseType[1] == 1 && verseType[2] != 1) ||
-                              (questionType == 15 && verseType[0] == 1 && verseType[1] == 1)){
+                    }else if ( (questionType == endQuestionType[1]+2 && verseType[2] != 1) || (questionType == endQuestionType[1]+1 && verseType[1] == 1 && verseType[2] != 1) ||
+                              (questionType == endQuestionType[1] && verseType[0] == 1 && verseType[1] == 1)){
                         outputFile << x << ". R. Finish this verse and give the reference: " << answer[3] << "\n\t" << answer[4] << " ";
                         outputFile << answer[5] << endl << endl;
                         verseType[2]++;
@@ -532,7 +538,40 @@ void QuestionPicker::PickQuestion(const int questionType, const int x){\
                     //cout << "I did this Thing!" << questionCatagory << endl << endl;
                 }
             }
-        }else{ //Else it is of other type which has 6 lines, dig site, question and four for answers
+        }else{  //Rapid fire question only need three lines, dig site question and answer
+            if(y == questionNum[0]-1){ //If is smaller numbered question
+                inputFile >> digSite[0];
+                inputFile.ignore(500, '\n');
+                getline(inputFile, question[0]);
+                getline(inputFile, answer[0]);
+
+            }else if(y == questionNum[1]-1){ //Larger number question
+                inputFile >> digSite[1];
+                inputFile.ignore(500, '\n');
+                getline(inputFile, question[1]);
+                getline(inputFile, answer[1]);
+            }else{ //Neither of the question we are after and can thus be ignored
+                inputFile.ignore(500, '\n');
+                inputFile.ignore(500, '\n');
+                inputFile.ignore(500, '\n');
+            }
+
+            //At the very end output the properly formatted output and track which one was used
+            if(y ==  higher-1){
+                //cout << question[0] << " " << answer[0] << endl;
+                if(digSiteUse[digSite[0]-1] <= digSiteUse[digSite[1]-1]){
+                    outputFile << question[0] << endl << "\t" << "A. " <<answer[0] << endl << endl;
+                    digSiteUse[digSite[0]-1]++;
+                    questionsUsed[1][questionCount] = questionNum[0];
+                    questionAmount[questionCatagory][questionNum[0]-1]++;
+                }else{
+                    outputFile << question[1] << endl << "\t" << "A. " <<answer[1] << endl << endl;
+                    digSiteUse[digSite[1]-1]++;
+                    questionsUsed[1][questionCount] = questionNum[1];
+                    questionAmount[questionCatagory][questionNum[1]-1]++;
+                }
+            }
+        }/*else{ //Else it is of other type which has 6 lines, dig site, question and four for answers
             if(y == questionNum[0]-1){
                 inputFile >> digSite[0];
                 inputFile.ignore(500, '\n');
@@ -644,7 +683,7 @@ void QuestionPicker::PickQuestion(const int questionType, const int x){\
                     questionAmount[questionCatagory][questionNum[1]-1]++;
                 }
             }
-        }
+        }*/
     }
 
     //Increase the question number that we are on
@@ -659,10 +698,9 @@ int QuestionPicker::fileLines(string f){
     string line;
     int numLines = 0;
     ifstream file;
-    file.open((Folder + f).c_str());
+    file.open(f.c_str());
     while(getline(file, line)){
         ++numLines;
     }
-    file.close();
     return numLines;
 }
