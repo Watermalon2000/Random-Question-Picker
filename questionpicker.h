@@ -12,6 +12,7 @@ class QuestionPicker{
         ~QuestionPicker();
         void Activate();
         void OutputUsed();
+        const int endQuestionType[6] = {13, 17, 20, 21, 21, 21};
 
     private:
         int questionCount;
@@ -21,10 +22,11 @@ class QuestionPicker{
         int verseType[3];
         int verseNum[9];
         int questionType;
-        int questionsUsed[2][75];
+        int questionsUsed[2][85];
         int situationUsed;
         int** questionAmount;
         ofstream outputFile;
+        string filePath = "Questions\\";
 
         int fileLines(string f);
         void PickQuestion(const int questionType, const int x);
